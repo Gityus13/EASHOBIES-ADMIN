@@ -15,6 +15,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
         
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(45deg, #5a67d8, #6a3b9a, #e55a5a, #e6b84d, #3ab0e0, #1abfb6, #5522b0, #e58fd9);
@@ -74,6 +79,9 @@
         
         .container {
             max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
         }
         
         .floating {
@@ -243,18 +251,6 @@
             background: rgba(51, 65, 85, 0.7) !important;
         }
         
-        @media (min-width: 768px) {
-            .text-4xl {
-                font-size: 2.75rem;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .text-4xl {
-                font-size: 3rem;
-            }
-        }
-        
         .star {
             position: absolute;
             background: white;
@@ -271,13 +267,6 @@
         .text-xl {
             font-size: 1.25rem;
             line-height: 1.75rem;
-        }
-        
-        @media (min-width: 768px) {
-            .text-xl {
-                font-size: 1.5rem;
-                line-height: 2rem;
-            }
         }
         
         @keyframes twinkle {
@@ -304,7 +293,7 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 1.5rem;
-            padding: 2.5rem;
+            padding: 2rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             width: 100%;
             max-width: 450px;
@@ -390,8 +379,8 @@
         
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
@@ -409,6 +398,154 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             background: rgba(255, 255, 255, 0.2);
         }
+        
+        /* Responsive Design */
+        /* Mobile First Approach */
+        
+        /* Header adjustments for mobile */
+        header {
+            padding: 2rem 1rem;
+        }
+        
+        /* Title size adjustments */
+        .name-title {
+            font-size: 2.5rem;
+        }
+        
+        /* Button container adjustments */
+        .button-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .button-container a {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        /* Footer adjustments */
+        footer {
+            margin-top: 2rem;
+            padding: 1.5rem;
+        }
+        
+        /* Tablet and larger screens */
+        @media (min-width: 640px) {
+            .name-title {
+                font-size: 3.5rem;
+            }
+            
+            .button-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .button-container a {
+                width: auto;
+            }
+            
+            .login-container {
+                padding: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .name-title {
+                font-size: 4.5rem;
+            }
+            
+            .text-4xl {
+                font-size: 2.75rem;
+            }
+            
+            .text-xl {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            header {
+                padding: 5rem 1rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .name-title {
+                font-size: 6rem;
+            }
+            
+            .text-4xl {
+                font-size: 3rem;
+            }
+            
+            .button-container {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .name-title {
+                font-size: 7rem;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 380px) {
+            .name-title {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .dashboard-card {
+                padding: 1rem;
+            }
+            
+            .p-5 {
+                padding: 0.75rem;
+            }
+            
+            .w-12, .h-12 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            
+            .dark-mode-toggle {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .toggle-button {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .toggle-button i {
+                font-size: 16px;
+            }
+            
+            .login-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Height adjustments for landscape mode on mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .name-title {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -425,12 +562,12 @@
     <!-- Login Section -->
     <div id="login-section" class="login-container" data-aos="fade-up">
         <div class="flex justify-center mb-6">
-            <img src="https://i.ibb.co/wFY6Tn2y/7-F.png" alt="Logo" class="h-24 w-24 floating rounded-full">
+            <img src="https://i.ibb.co/wFY6Tn2y/7-F.png" alt="Logo" class="h-20 w-20 md:h-24 md:w-24 floating rounded-full">
         </div>
-        <h1 class="name-title text-4xl md:text-5xl font-bold text-white mb-6 text-center gradient-text">
+        <h1 class="name-title text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 text-center gradient-text">
             Host Portal
         </h1>
-        <p class="text-xl text-white/90 mb-8 text-center">
+        <p class="text-lg md:text-xl text-white/90 mb-6 md:mb-8 text-center">
             Secure access for event hosts
         </p>
         
@@ -453,15 +590,15 @@
     
     <!-- Protected Content -->
     <div id="protected-content" class="protected-content">
-        <header class="relative py-12 text-center mb-8">
+        <header class="relative py-8 md:py-12 text-center mb-6 md:mb-8">
             <div class="container mx-auto px-4">
-                <div class="flex justify-center mb-6">
-                    <img src="https://i.ibb.co/wFY6Tn2y/7-F.png" alt="Logo" class="h-32 w-32 floating rounded-full">
+                <div class="flex justify-center mb-4 md:mb-6">
+                    <img src="https://i.ibb.co/wFY6Tn2y/7-F.png" alt="Logo" class="h-24 w-24 md:h-32 md:w-32 floating rounded-full">
                 </div>
-                <h1 class="name-title text-5xl md:text-7xl font-bold text-white mb-6 floating gradient-text">
+                <h1 class="name-title text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 floating gradient-text">
                     Host Dashboard
                 </h1>
-                <p class="text-2xl text-white/90 max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
                     Welcome to the secure host portal. Manage your events and access exclusive features.
                 </p>
             </div>
@@ -469,49 +606,49 @@
         
         <div class="dashboard-grid">
             <div class="dashboard-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex justify-center mb-5">
-                    <div class="bg-white/20 p-4 rounded-full">
-                        <i data-feather="calendar" class="w-10 h-10 text-white"></i>
+                <div class="flex justify-center mb-4 md:mb-5">
+                    <div class="bg-white/20 p-3 md:p-4 rounded-full">
+                        <i data-feather="calendar" class="w-8 h-8 md:w-10 md:h-10 text-white"></i>
                     </div>
                 </div>
-                <h2 class="name-title text-2xl font-bold mb-4 text-center text-white">Upcoming Events</h2>
-                <p class="text-center text-white/90 mb-5">3 events scheduled for this week</p>
+                <h2 class="name-title text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center text-white">Upcoming Events</h2>
+                <p class="text-center text-white/90 mb-4 md:mb-5">3 events scheduled for this week</p>
                 <button class="login-btn">View Details</button>
             </div>
             
             <div class="dashboard-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex justify-center mb-5">
-                    <div class="bg-white/20 p-4 rounded-full">
-                        <i data-feather="users" class="w-10 h-10 text-white"></i>
+                <div class="flex justify-center mb-4 md:mb-5">
+                    <div class="bg-white/20 p-3 md:p-4 rounded-full">
+                        <i data-feather="users" class="w-8 h-8 md:w-10 md:h-10 text-white"></i>
                     </div>
                 </div>
-                <h2 class="name-title text-2xl font-bold mb-4 text-center text-white">Attendees</h2>
-                <p class="text-center text-white/90 mb-5">1,243 registered attendees</p>
+                <h2 class="name-title text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center text-white">Attendees</h2>
+                <p class="text-center text-white/90 mb-4 md:mb-5">1,243 registered attendees</p>
                 <button class="login-btn">Manage List</button>
             </div>
             
             <div class="dashboard-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex justify-center mb-5">
-                    <div class="bg-white/20 p-4 rounded-full">
-                        <i data-feather="settings" class="w-10 h-10 text-white"></i>
+                <div class="flex justify-center mb-4 md:mb-5">
+                    <div class="bg-white/20 p-3 md:p-4 rounded-full">
+                        <i data-feather="settings" class="w-8 h-8 md:w-10 md:h-10 text-white"></i>
                     </div>
                 </div>
-                <h2 class="name-title text-2xl font-bold mb-4 text-center text-white">Settings</h2>
-                <p class="text-center text-white/90 mb-5">Configure your portal preferences</p>
+                <h2 class="name-title text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center text-white">Settings</h2>
+                <p class="text-center text-white/90 mb-4 md:mb-5">Configure your portal preferences</p>
                 <button class="login-btn">Configure</button>
             </div>
         </div>
         
-        <div class="flex justify-center gap-6 mt-12">
-            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
+        <div class="button-container flex justify-center gap-4 md:gap-6 mt-8 md:mt-12">
+            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
                 <i data-feather="download"></i>
                 Export Data
             </a>
-            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
+            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
                 <i data-feather="bell"></i>
                 Notifications
             </a>
-            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
+            <a href="#" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2">
                 <i data-feather="log-out"></i>
                 Logout
             </a>
@@ -519,9 +656,9 @@
     </div>
     
     <!-- Footer -->
-    <footer class="bg-black/20 py-8 text-center text-white/80 mt-12 w-full max-w-6xl rounded-2xl">
+    <footer class="bg-black/20 py-6 md:py-8 text-center text-white/80 mt-8 md:mt-12 w-full max-w-6xl rounded-2xl">
         <div class="container mx-auto px-4">
-            <p class="text-lg">Host Portal v2.0 - © 2023. Secure Access System</p>
+            <p class="text-base md:text-lg">Host Portal v2.0 - © 2023. Secure Access System</p>
         </div>
     </footer>
     
