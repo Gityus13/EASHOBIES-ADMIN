@@ -430,6 +430,28 @@
             padding: 1.5rem;
         }
         
+        /* Responsive iframe */
+        .responsive-iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 2rem 0;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
         /* Tablet and larger screens */
         @media (min-width: 640px) {
             .name-title {
@@ -467,6 +489,10 @@
             header {
                 padding: 5rem 1rem;
             }
+            
+            .responsive-iframe-container {
+                padding-top: 50%; /* Adjust aspect ratio for tablets */
+            }
         }
         
         @media (min-width: 1024px) {
@@ -481,6 +507,12 @@
             .button-container {
                 flex-direction: row;
                 flex-wrap: nowrap;
+            }
+            
+            .responsive-iframe-container {
+                padding-top: 45%; /* Adjust aspect ratio for desktops */
+                max-width: 900px;
+                margin: 2rem auto;
             }
         }
         
@@ -530,6 +562,10 @@
             .login-container {
                 padding: 1.5rem;
             }
+            
+            .responsive-iframe-container {
+                border-radius: 0.75rem;
+            }
         }
         
         /* Height adjustments for landscape mode on mobile */
@@ -544,6 +580,11 @@
             
             body {
                 padding: 10px;
+            }
+            
+            .login-container {
+                padding: 1.5rem;
+                max-width: 400px;
             }
         }
     </style>
@@ -601,15 +642,17 @@
             </div>
         </header>
         
-        <iframe width="900" height="450" src="https://lookerstudio.google.com/embed/reporting/b7cf074b-8ec8-49f4-8c95-dfc4f86fc840/page/gTXXF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <div class="responsive-iframe-container">
+            <iframe class="responsive-iframe" src="https://lookerstudio.google.com/embed/reporting/b7cf074b-8ec8-49f4-8c95-dfc4f86fc840/page/gTXXF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
     
     <!-- Footer -->
     <footer class="bg-black/20 py-6 md:py-8 text-center text-white/80 mt-8 md:mt-12 w-full max-w-6xl rounded-2xl">
         <div class="container mx-auto px-4">
-            <p class="text-base md:text-lg">Host Portal v2.0 - © 2023. Secure Access System</p>
+            <p class="text-base md:text-lg">Admin eas portal v2.0 - © 2025. Secure Access System made </p>
         </div>
     </footer>
-    
+    for yusif and kenan and farhad
     <script>
         // Initialize AOS
         AOS.init({
